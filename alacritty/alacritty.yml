@@ -1,0 +1,91 @@
+TERM: xterm-256color
+
+font:
+  size: 15.0
+  normal:
+    # family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
+    style: Regular
+
+  Bold:
+    # family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  italic:
+    # family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+cursor:
+  style: Beam
+  unfocused_hollow: true
+
+window:
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels.
+  # If both are `0`, this setting is ignored.
+  dimensions:
+    columns: 0
+    lines: 0
+
+  #decorations: true
+
+  dynamic_title: true
+
+  offset:
+    x: 0
+    y: 1
+
+  glyph_offset:
+    x: 0
+    y: 1
+
+  padding:
+    x: 25
+    y: 25
+
+  dynamic_padding: true
+
+startup_mode: windowed
+
+#key: return,
+
+#mods: Command,
+#action: SpawnNewInstance
+
+use_thin_strokes: true
+
+live_config_reload: true
+
+# BEGIN ACE
+colors:
+  primary:
+    background: '0x0c0918'
+    foreground: '0xc9e0ef'
+  cursor:
+    text:       '0x0c0918'
+    cursor:     '0xc9e0ef'
+  normal:
+    black:      '0x0c0918'
+    red:        '0x6063CB'
+    green:      '0xBF2DE4'
+    yellow:     '0x699ED7'
+    blue:       '0x41B5CD'
+    magenta:    '0x2BE2E5'
+    cyan:       '0x95AAD3'
+    white:      '0xc9e0ef'
+  bright:
+    black:      '0x8c9ca7'
+    red:        '0x6063CB'
+    green:      '0xBF2DE4'
+    yellow:     '0x699ED7'
+    blue:       '0x41B5CD'
+    magenta:    '0x2BE2E5'
+    cyan:       '0x95AAD3'
+    white:      '0xc9e0ef'
+
+# END ACE
+
+background_opacity: 1

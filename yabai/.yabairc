@@ -1,0 +1,101 @@
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+#!/usr/bin/env sh
+source ~/.cache/wal/colors.sh
+
+CBACK=$(echo $background | sed 's/#//')
+CFORE=$(echo $foreground | sed 's/#//')
+CACTV=$(echo $color5 | sed 's/#//')
+CNORM=$(echo $color1 | sed 's/#//')
+CINSE=$(echo $foreground | sed 's/#//')
+
+yabai -m config layout bsp
+yabai -m config top_padding 15
+yabai -m config bottom_padding 10
+yabai -m config left_padding 20
+yabai -m config right_padding 20
+yabai -m config window_gap 15
+
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_opacity               on
+yabai -m config window_opacity_duration      0.0
+yabai -m config window_shadow                on
+yabai -m config active_window_opacity        1
+yabai -m config normal_window_opacity        1
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+
+yabai -m config status_bar                   on
+yabai -m config status_bar_background_color  0xff$CBACK
+yabai -m config status_bar_foreground_color  0xff$CFORE
+
+yabai -m config window_border off
+yabai -m config window_border_width 1.5
+yabai -m config active_window_border_color   0xff$CACTV
+yabai -m config normal_window_border_color   0xff$CNORM
+yabai -m config insert_window_border_color   0xff$CINSE
+
+yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
+yabai -m rule --add title="^Installer$" manage=off
+yabai -m rule --add app="^Time Out$" manage=off
+yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Shadow$" opacity=1
+yabai -m rule --add app=Music space=1
+yabai -m rule --add app="^TeamViewer$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add title="^Opening$" manage=off
+yabai -m rule --add title="^pdf$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add title="^About This Mac$" manage=off
+yabai -m rule --add title="^Picture-in-Picture$" opacity=1.0
+yabai -m rule --add app="^vlc$" manage=off
+yabai -m rule --add app="^Dock$" manage=off
+yabai -m rule --add app="^MAMP PRO$" manage=off,
+yabai -m rule --add app="^Hyper$" manage=off,
+#yabai -m rule --add app=Übersicht manage=off
+#yabai -m rule --add title=Übersicht manage=off
+
+# Refresh spaces widget on space change
+#yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh spaces widget on display focus change
+#yabai -m signal --add event=display_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Refresh process widget on space change
+#yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Uncomment next line to enable spaces widget refresh on your 2nd monitor
+#yabai -m signal --add event=space_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+# Refresh process widget on when focused application changes
+#yabai -m signal --add event=window_focused action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh spaces widget on when focused application changes
+#yabai -m signal --add event=window_focused action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Uncomment next line to enable spaces widget refresh on your 2nd monitor
+#yabai -m signal --add event=window_focused action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+# Refresh process widget on when focused application changes
+#yabai -m signal --add event=application_front_switched action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh spaces widget on when focused application changes
+#yabai -m signal --add event=application_front_switched action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Uncomment next line to enable spaces widget refresh on your 2nd monitor
+#yabai -m signal --add event=application_front_switched action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+# Refresh process widget on when an application window is closed
+#yabai -m signal --add event=window_destroyed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+# Refresh spaces widget on when an application window is closed
+#yabai -m signal --add event=window_destroyed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# Uncomment next line to enable spaces widget refresh on your 2nd monitor
+#yabai -m signal --add event=window_destroyed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-spaces-2-jsx\"'"
+
+# Refresh process widget when current window title changes
+#yabai -m signal --add event=window_title_changed action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"simple-bar-process-jsx\"'"
+echo "yabai configuration loaded."
+
+
